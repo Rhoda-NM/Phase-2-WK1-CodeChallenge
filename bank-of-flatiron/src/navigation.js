@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import './App.css';
 
 function Navigation({handleSearch}) {
+    const [date, setDate] = useState(new Date());
+    const CustomInput = ({ value, onClick}) => (
+        <input
+            type="text"
+            value={value}
+            onClick={onClick}
+            placeholder="Select date"
+            readOnly
+        />
+    );
     return (
         <>
         <div className="nav">
@@ -13,12 +25,17 @@ function Navigation({handleSearch}) {
         </div>
         <div className="addTransaction">
             <form>
-                <input type="text" placeholder="Date" />
-                <input type="text" placeholder="Date" />
-                <input type="text" placeholder="Date" />
-                <input type="text" placeholder="Date" />
+                <label>Date</label>
+                <DatePicker 
+                    selected={date} 
+                    onChange={(date) => setDate(date)}
+                    customInput={<CustomInput />}
+                />
+                <input type="text" placeholder="Description" />
+                <input type="text" placeholder="Category" />
+                <input type="text" placeholder="Amount" />
             </form>
-            <div>
+            <div id="btn">
                 <button>Add Transaction</button>
             </div>
         </div>
