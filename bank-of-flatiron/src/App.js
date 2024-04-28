@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './header';
 import './App.css';
 import Navigation from './navigation';
@@ -37,11 +37,19 @@ const data = [
   }
 ];
 function App() {
+  const[transactionData, setTransactionData] = useState(data);
+  function handleSearchChange(event) {
+    const searchResult = data.filter((transaction) => (
+      transaction.description.toLowerCase().includes(event.target.value.toLowerCase())
+    ));
+    setTransactionData(searchResult);
+
+  }
   return (
     <div className="App">
       <Header />
-      <Navigation />
-      <TransactionList data={data}/>
+      <Navigation handleSearch={handleSearchChange} />
+      <TransactionList data={transactionData}/>
     </div>
   );
 }
