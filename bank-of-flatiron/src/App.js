@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Header from './header';
 import './App.css';
 import Navigation from './navigation';
 import TransactionList from './transactionList';
@@ -75,7 +74,6 @@ function App() {
   //Function that handles submitting the add transaction form
   return (
     <div className="App">
-      <Header />
       <Navigation handleSearch={handleSearchChange} 
         handleSubmit={handleSubmit}
         addAmount={addAmount}

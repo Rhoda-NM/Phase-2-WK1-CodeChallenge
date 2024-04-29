@@ -6,6 +6,9 @@ import './App.css';
 function Navigation({handleSearch, handleSubmit, addAmount, addCategory, addDescription, date, handleDate}) {
     return (
         <>
+        <header>
+            <h1>The Royal Bank of Flatiron</h1>
+        </header>
         <div className="nav">
             <form id="search" action="#">
                 <input onChange={handleSearch} type="text" placeholder="Search Your Recent Transaction" />
