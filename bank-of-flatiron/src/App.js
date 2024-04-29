@@ -61,6 +61,10 @@ function App() {
     const newList = [...data]
     //console.log(addedTransaction)
     setTransactionData(newList);
+    setDate(new Date())
+    setAmount("");
+    setCategory("");
+    setDescription("") //Reset the form inputs to empty upon submitting
   }
   //Function that handles search as a callback function
   function handleSearchChange(event) {
@@ -80,6 +84,9 @@ function App() {
         addCategory={addCategory}
         addDescription={addDescription}
         date={date}
+        amount={amount}
+        description={description}
+        category={category}
         handleDate={handleDate}
       />
       <TransactionList data={transactionData}/>
