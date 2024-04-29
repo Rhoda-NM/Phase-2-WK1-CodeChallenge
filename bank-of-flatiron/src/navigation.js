@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css'
 import './App.css';
 
-function Navigation({handleSearch}) {
-    const [date, setDate] = useState(new Date());
+function Navigation({handleSearch, handleSubmit, addAmount, addCategory, addDescription, date, handleDate}) {
     return (
         <>
         <div className="nav">
@@ -16,19 +15,19 @@ function Navigation({handleSearch}) {
             </form>
         </div>
         <div className="addTransaction">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>Date</label>
                 <DatePicker 
-                    selected={date} 
-                    onChange={(date) => setDate(date)}
+                    selected={date}
+                    value={date} 
+                    onChange={handleDate}
                 />
-                <input type="text" placeholder="Description" />
-                <input type="text" placeholder="Category" />
-                <input type="text" placeholder="Amount" />
-            </form>
-            <div id="btn">
+                <input onChange={addDescription}type="text" placeholder="Description" />
+                <input onChange={addCategory} type="text" placeholder="Category" />
+                <input onChange={addAmount} type="text" placeholder="Amount" />
                 <button>Add Transaction</button>
-            </div>
+            </form>
+            
         </div>
         </>
     )

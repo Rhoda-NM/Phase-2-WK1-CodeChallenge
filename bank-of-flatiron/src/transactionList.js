@@ -1,22 +1,24 @@
 import React from "react";
-import DataTable from 'react-data-table-component';
 import './App.css';
  
 function TransactionList({data}) {
     
     return(
         <>
-        <div class="transactionList">
+        <div className="transactionList">
             <table>
                 <thead>
-                    <th>Date</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Amount</th>
+                    <tr>
+                        <th key="date">Date</th>
+                        <th key="description">Description</th>
+                        <th key="category">Category</th>
+                        <th key="amount">Amount</th>
+                    </tr>
+                
                 </thead>
                 <tbody>
                     {data.map((transaction) => (
-                        <tr>
+                        <tr key={transaction.id}>
                             <td>{transaction.date}</td>
                             <td>{transaction.description}</td>
                             <td>{transaction.category}</td>
