@@ -1,18 +1,10 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.css'
 import './App.css';
 
 function Navigation({handleSearch}) {
     const [date, setDate] = useState(new Date());
-    const CustomInput = ({ value, onClick}) => (
-        <input
-            type="text"
-            value={value}
-            onClick={onClick}
-            placeholder="Select date"
-            readOnly
-        />
-    );
     return (
         <>
         <div className="nav">
@@ -29,7 +21,6 @@ function Navigation({handleSearch}) {
                 <DatePicker 
                     selected={date} 
                     onChange={(date) => setDate(date)}
-                    customInput={<CustomInput />}
                 />
                 <input type="text" placeholder="Description" />
                 <input type="text" placeholder="Category" />

@@ -1,8 +1,12 @@
 import React from "react";
-
+import DataTable from 'react-data-table-component';
+import './App.css';
+ 
 function TransactionList({data}) {
+    
     return(
-        <div>
+        <>
+        <div class="transactionList">
             <table>
                 <thead>
                     <th>Date</th>
@@ -22,6 +26,8 @@ function TransactionList({data}) {
                 </tbody>
             </table>
         </div>
+        
+        </>
     )
 }
 
